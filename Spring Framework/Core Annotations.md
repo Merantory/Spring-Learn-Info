@@ -114,3 +114,19 @@ void setVehicle(Vehicle vehicle) {
 Vehicle vehicle;
 ```
 Подробнее здесь
+
+### @Required 
+Аннотация @Required используется на сеттерах, чтобы указать,
+что bean свойство должно быть определено в файле XML конфигурации.
+Если это не так, будет выброшено исключение - _BeanInitializationException_
+```java
+@Required
+void setColor(String color) {
+    this.color = color;
+}
+```
+```xml
+<bean class="com.baeldung.annotations.Bike">
+    <property name="color" value="green" />
+</bean>
+```
