@@ -290,3 +290,13 @@ class Bike implements Vehicle {}
 @Import(VehiclePartSupplier.class)
 class VehicleFactoryConfig {}
 ```
+
+### @ImportResource
+Мы можем импортировать XML-конфигурации с помощью этой аннотации.
+Мы можем указать расположения XML-файлов с помощью аргумента locations или с помощью его псевдонима, аргумента value:
+
+```java
+@Configuration
+@ImportResource("classpath:/annotations.xml")
+class VehicleFactoryConfig {}
+```
