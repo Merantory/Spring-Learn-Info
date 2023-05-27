@@ -130,3 +130,45 @@ void setColor(String color) {
     <property name="color" value="green" />
 </bean>
 ```
+
+### @Value
+Мы можем внедрять значения в наши Bean'ы используя аннотацию @Value. Это совместимо с конструкторами, сеттарами, полями.
+
+Внедрение при помощи **конструктора**:
+```java
+Engine(@Value("8") int cylinderCount) {
+    this.cylinderCount = cylinderCount;
+}
+```
+Внедрение при помощи **сеттера**:
+```java
+@Autowired
+void setCylinderCount(@Value("8") int cylinderCount) {
+    this.cylinderCount = cylinderCount;
+}
+```
+или
+```java
+@Value("8")
+void setCylinderCount(int cylinderCount) {
+    this.cylinderCount = cylinderCount;
+}
+```
+Внедрение при помощи **поля**:
+```java
+@Value("8")
+int cylinderCount;
+```
+Конечно, прямое внедрение статических значений является не очень полезным.
+Но мы можем подтянуть значения, которые определены в наших .properties файлах или .yaml файлах.
+
+Предположим, что у нас есть следующий .properties файл:
+```properties
+engine.fuelType=petrol
+```
+Тогда мы можем внедрить значение "petrol", которое прописано в engine.fuelType при помощи:
+```java
+@Value("${engine.fuelType}")
+String fuelType;
+```
+Мы можем использовать @Value также используя SpEL(Spring Expression Language). Об этом подробнее здесь
