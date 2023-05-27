@@ -280,3 +280,13 @@ class Bike implements Vehicle {}
 ```
 
 Подробнее про профили здесь
+
+
+### @Import
+Мы можем использовать класс помеченный аннотацией @Configuration без использования сканирования компонентов.
+Для этого нам нужно указать данный класс в качестве аргумента аннотации @Import.
+
+```java
+@Import(VehiclePartSupplier.class)
+class VehicleFactoryConfig {}
+```
