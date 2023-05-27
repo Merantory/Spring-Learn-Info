@@ -300,3 +300,20 @@ class VehicleFactoryConfig {}
 @ImportResource("classpath:/annotations.xml")
 class VehicleFactoryConfig {}
 ```
+
+
+### @PropertySource
+При помощи данной аннотации мы можем определить файл свойств для настройки нашего приложения.
+```java
+@Configuration
+@PropertySource("classpath:/annotations.properties")
+class VehicleFactoryConfig {}
+```
+С Java 8 внутри аннотации @PropertySource реализуется функционал повторяющихся аннотаций.
+Это значит, что мы можем использовать данную аннотацию, чтобы указать несколько файлов свойств.
+```java
+@Configuration
+@PropertySource("classpath:/annotations.properties")
+@PropertySource("classpath:/vehicle-factory.properties")
+class VehicleFactoryConfig {}
+```
