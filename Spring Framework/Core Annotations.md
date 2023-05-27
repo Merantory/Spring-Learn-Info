@@ -172,3 +172,19 @@ engine.fuelType=petrol
 String fuelType;
 ```
 Мы можем использовать @Value также используя SpEL(Spring Expression Language). Об этом подробнее здесь
+
+### @DependsOn
+Мы можем использовать данную аннотацию, чтобы указать Spring, чтобы перед подгрузкой Bean'a,
+сначала подгрузились Bean'ы, указанные в аннотации, обычно это компоненты, от которых зависит текущий подгружаемый Bean.
+Описанное поведение является автоматическим для Spring, но данная аннотация может быть полезна для подгрузки неявных компонентов.
+```java
+@DependsOn("engine")
+class Car implements Vehicle {}
+```
+```java
+@Bean
+@DependsOn("fuel")
+Engine engine() {
+    return new Engine();
+}
+```
