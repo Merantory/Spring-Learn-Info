@@ -317,3 +317,15 @@ class VehicleFactoryConfig {}
 @PropertySource("classpath:/vehicle-factory.properties")
 class VehicleFactoryConfig {}
 ```
+
+
+### @PropertySources
+Мы можем использовать данную аннотацию для указания нескольких файлов свойств @PropertySource.
+```java
+@Configuration
+@PropertySources({ 
+    @PropertySource("classpath:/annotations.properties"),
+    @PropertySource("classpath:/vehicle-factory.properties")
+})
+class VehicleFactoryConfig {}
+```
