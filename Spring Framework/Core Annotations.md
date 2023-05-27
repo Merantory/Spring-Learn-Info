@@ -2,7 +2,7 @@
 
 При помощи аннотаций мы можем использовать возможности Spring DI.
 Данные аннотации называются Spring core аннотациями и расположены они в следующих пакетах:
-    org.springframework.beans.factory.annotation и org.springframework.context.annotation packages.
+org.springframework.beans.factory.annotation и org.springframework.context.annotation packages.
 
 ## Аннотации относящиеся к DI механизму:
 
@@ -265,3 +265,18 @@ class Engine {}
 ```
 
 Подробнее про скоупы здесь
+
+
+## Аннотации конфигурации
+
+### @Profile
+Если мы хотим использовать определенный метод отмеченный аннотацией @Component или @Bean
+только во время активности какого-либо профиля, мы можем пометить метод аннотацией @Profile, указав его имя.
+
+```java
+@Component
+@Profile("sportDay")
+class Bike implements Vehicle {}
+```
+
+Подробнее про профили здесь
